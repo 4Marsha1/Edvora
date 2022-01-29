@@ -5,7 +5,7 @@ import FilterComponent from '../FilterComponent';
 import Sidebar from '../Sidebar';
 import { ReactComponent as FilterIcon } from '../../icons/filter.svg';
 
-const Index = ({ isSidebarOpen, toggleSidebar }) => {
+const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames }) => {
     return (
         <>
             <div className={styles['filter']}>
@@ -19,7 +19,7 @@ const Index = ({ isSidebarOpen, toggleSidebar }) => {
             <div className={styles['filter-icon']} onClick={toggleSidebar}>
                 <FilterIcon className={styles['icon']} />
             </div>
-            <DisplayComponent />
+            <DisplayComponent products={products} brandNames={brandNames} />
         </>
     );
 };
