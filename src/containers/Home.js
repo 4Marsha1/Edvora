@@ -42,12 +42,28 @@ class Home extends Component {
 
         setTimeout(() => {
             let products;
+            // only product filter
             if (e.target.name === 'productFilter' && (this.state.productFilter !== '' || this.state.productFilter !== 0))
                 products = this.state.products.filter(product => product.product_name === this.state.productFilter);
+            // only state filter
             if (e.target.name === 'stateFilter' && (this.state.stateFilter !== '' || this.state.stateFilter !== 0))
                 products = this.state.products.filter(product => product.address.state === this.state.stateFilter);
+            // only city filter
             if (e.target.name === 'cityFilter' && (this.state.cityFilter !== '' || this.state.cityFilter !== 0))
                 products = this.state.products.filter(product => product.address.city === this.state.cityFilter);
+            // product - state filter
+            if ((e.target.name === 'productFilter' && (this.state.productFilter !== '' || this.state.productFilter !== 0))
+                && (e.target.name === 'stateFilter' && (this.state.stateFilter !== '' || this.state.stateFilter !== 0)))
+                products = this.state.products
+                    .filter(product => product.product_name === this.state.productFilter)
+                    .filter(product => product.address.state === this.state.stateFilter)
+            // state - city filter
+            if ((e.target.name === 'stateFilter' && (this.state.stateFilter !== '' || this.state.stateFilter !== 0))
+                && (e.target.name === 'cityFilter' && (this.state.cityFilter !== '' || this.state.cityFilter !== 0)))
+                products = this.state.products
+                    .filter(product => product.address.state === this.state.stateFilter)
+                    .filter(product => product.address.city === this.state.cityFilter)
+            // setState
             this.setState({ ...this.state, productsListForFilter: products });
         }, 1000);
     }
