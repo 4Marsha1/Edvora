@@ -2,21 +2,26 @@ import React from 'react';
 import styles from './Display.module.css';
 import ProductList from '../ProductList';
 
-const Index = ({ products, brandNames }) => {
+const Index = ({ productsListForFilter, brandNames, isLoading }) => {
     const list = brandNames.map((brandName, index) => {
-        return (
-            <ProductList
+        const productList = productsListForFilter.filter(product => product.brand_name === brandName)
+        return productList.length > 0 ?
+            (<ProductList
                 key={index}
-                productList={products.filter(product => product.brand_name === brandName)}
+                productList={productList}
                 brandName={brandName}
-            />
-        )
+            />) : <></>
     })
     return (
         <div className={styles['container']}>
             <span className={styles['header']}>Edvora</span>
             <span className={styles['title']}>Products</span>
-            {list}
+            {
+                isLoading ?
+                    <div className={styles['loading']}>
+                        <span className={styles['msg']}>Loading ...</span>
+                    </div> : list
+            }
         </div>
     );
 };

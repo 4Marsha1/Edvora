@@ -5,21 +5,39 @@ import FilterComponent from '../FilterComponent';
 import Sidebar from '../Sidebar';
 import { ReactComponent as FilterIcon } from '../../icons/filter.svg';
 
-const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames }) => {
+const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames, productFilter,
+    stateFilter, cityFilter, handleFilter, productsListForFilter, isLoading }) => {
     return (
         <>
             <div className={styles['filter']}>
-                <FilterComponent />
+                <FilterComponent
+                    products={products}
+                    productFilter={productFilter}
+                    stateFilter={stateFilter}
+                    cityFilter={cityFilter}
+                    handleFilter={handleFilter}
+                />
             </div>
             {
                 isSidebarOpen ? <div className={styles['sidebar']}>
-                    <Sidebar toggleSidebar={toggleSidebar} />
+                    <Sidebar
+                        toggleSidebar={toggleSidebar}
+                        products={products}
+                        productFilter={productFilter}
+                        stateFilter={stateFilter}
+                        cityFilter={cityFilter}
+                        handleFilter={handleFilter}
+                    />
                 </div> : <></>
             }
             <div className={styles['filter-icon']} onClick={toggleSidebar}>
                 <FilterIcon className={styles['icon']} />
             </div>
-            <DisplayComponent products={products} brandNames={brandNames} />
+            <DisplayComponent
+                isLoading={isLoading}
+                productsListForFilter={productsListForFilter}
+                brandNames={brandNames}
+            />
         </>
     );
 };
