@@ -1,4 +1,4 @@
-/* styling for individual card  */
+/* styling for the individual card  */
 .card{
     background-color: #232323;
     width: 210px;
@@ -8,6 +8,7 @@
     padding: 1rem;
     border-radius: 1rem;
 }
+
 /* styling for the image and name/price section  */
 .details{
     display: flex;

@@ -9,6 +9,7 @@ const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames, productFilt
     stateFilter, cityFilter, handleFilter, productsListForFilter, isLoading }) => {
     return (
         <>
+            {/* if the screen width is more than 540px, display the filter card in body  */}
             <div className={styles['filter']}>
                 <FilterComponent
                     products={products}
@@ -18,7 +19,10 @@ const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames, productFilt
                     handleFilter={handleFilter}
                 />
             </div>
+
+            {/* if the screen width is less than 541px, display the filter card as sidebar  */}
             {
+                // conditionally open / close sidebar 
                 isSidebarOpen ? <div className={styles['sidebar']}>
                     <Sidebar
                         toggleSidebar={toggleSidebar}
@@ -30,9 +34,13 @@ const Index = ({ isSidebarOpen, toggleSidebar, products, brandNames, productFilt
                     />
                 </div> : <></>
             }
+
+            {/* if the screen width is less than 541px, display the filter icon on screen  */}
             <div className={styles['filter-icon']} onClick={toggleSidebar}>
                 <FilterIcon className={styles['icon']} />
             </div>
+
+            {/* the main display component where products are listed by category  */}
             <DisplayComponent
                 isLoading={isLoading}
                 productsListForFilter={productsListForFilter}

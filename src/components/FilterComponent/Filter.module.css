@@ -1,3 +1,4 @@
+/* to contain the filter card  */
 .container{
     display: flex;
     justify-content: center;
@@ -34,7 +35,7 @@
     flex-direction: column;
     gap: 1rem;
 }
-/* styling for the filter elements  */
+/* styling for the filter dropdowns  */
 .dropdown {
     -webkit-appearance: none;
     -moz-appearance: none;

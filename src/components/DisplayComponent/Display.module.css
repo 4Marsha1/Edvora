@@ -1,15 +1,25 @@
-/* to enable scroll  */
+/* to enable scroll within the display screen */
 .container::-webkit-scrollbar { 
     display: none; 
 }
 
-/* to contain all stuffs on the right  */
+/* main display screen  */
 .container{
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
     width: 72%;
     overflow-y: scroll;
+}
+
+/* loading message: when data is not yet fetched */
+.loading{
+    text-align: center;
+}
+.msg{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #A5A5A5;
 }
 
 /* Service/ company brand name  */
@@ -27,16 +37,7 @@
     margin-bottom: 1rem;
 }
 
-/* loading message  */
-.loading{
-    text-align: center;
-}
-.msg{
-    font-size: 2rem;
-    font-weight: 500;
-    color: #A5A5A5;
-}
-
+/* minor styling changes for smaller screens  */
 @media screen and (max-width: 540px) {
     .container{
         width: 95%;

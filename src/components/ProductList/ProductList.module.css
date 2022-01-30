@@ -54,6 +54,7 @@
     border-radius: 1.4rem;
 }
 
+/* styling changes for smaller screens  */
 @media screen and (max-width:540px) {
     .cards-container{
         gap: 0.2rem;
