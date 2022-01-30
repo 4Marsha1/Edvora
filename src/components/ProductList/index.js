@@ -17,12 +17,24 @@ const index = ({ productList, brandName }) => {
             />
         )
     })
+
+    const scrollLeft = () => {
+        document.getElementById('cards').scrollLeft -= 100;
+    }
+    const scrollRight = () => {
+        document.getElementById('cards').scrollLeft += 100;
+    }
+
     return (
         <div className={styles['section']}>
             <span className={styles['brand-name']}>{brandName}</span>
             <div className={styles['hr']}></div>
-            <div className={styles['cards']}>
-                {productCards}
+            <div className={styles['cards-container']}>
+                <button className={styles['btn']} onClick={scrollLeft}>&#8249;</button>
+                <div className={styles['cards']} id='cards'>
+                    {productCards}
+                </div>
+                <button className={styles['btn']} onClick={scrollRight}>&#8250;</button>
             </div>
         </div>
     );

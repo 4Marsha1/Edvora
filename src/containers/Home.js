@@ -20,7 +20,6 @@ class Home extends Component {
     async componentDidMount() {
         await this.props.fetchProducts();
         if (!this.props.loading) {
-            console.log(this.props.products);
             this.setState({ ...this.state, products: this.props.products, productsListForFilter: this.props.products })
             const brandNames = [...new Set(this.state.products.map(product => product.brand_name))]
             this.setState({ ...this.state, brandNames: brandNames })

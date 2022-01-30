@@ -35,8 +35,15 @@
     gap: 1rem;
 }
 /* styling for the filter elements  */
-.dropdown{
+.dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("../../icons/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 50%;
     border: none;
+    outline: none;
     font-size: 1.2rem;
     color: white;
     padding: 0.4rem 1rem;
